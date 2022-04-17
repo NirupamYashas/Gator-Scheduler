@@ -1,0 +1,79 @@
+<div class="control-section">
+    <!-- sample level element  -->
+    <!-- <div class="col-lg-12 col-sm-12 col-md-12 center">
+        Click/Touch the button to view the sample
+    </div>
+    <div class="col-lg-12 col-sm-12 col-md-12 center">
+        <a class="e-btn" id="newTab" (click)="newTabClick()" target="_blank">Open in new Tab</a>
+    </div> -->
+    <!-- sample level element  -->
+    <div id="wrapper">
+        <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
+            <div class="col-lg-12 col-sm-12 col-md-12">
+                <!--header-section  declaration -->
+                <div class="header-section dock-menu" id="header">
+                    <ul class="header-list">
+                        <li id="hamburger" class="icon-menu icon list" (click)="openClick()"></li>
+                        <input type="text" placeholder="Search..." class="search-icon list">
+                        <li class="right-header list">
+                            <div class="horizontal-menu">
+                                <!-- Menu element declaration -->
+                                <ejs-menu [items]='AccountMenuItem' cssClass='dock-menu'></ejs-menu>
+                            </div>
+                        </li>
+                        <li class="right-header list support">Support</li>
+                        <li class="right-header list tour" >Tour</li>
+                    </ul>
+                </div>
+                <!--end of header-section  declaration -->
+                <!-- sidebar element declaration -->
+                <ejs-sidebar id="sidebar-menu" class="dock-menu" #sidebarMenuInstance [enableDock]='enableDock' [width]='width'
+                    [dockSize]='dockSize' [mediaQuery]='mediaQuery' [target]='target'>
+                    <div class="main-menu" id='flat-list'>
+                        <!-- <p class="main-menu-header">MAIN</p> -->
+                        <!-- Menu element declaration -->
+                        <!-- <ejs-menu [items]='menuItems' orientation='Vertical' cssClass='dock-menu'></ejs-menu> -->
+                        <h4 style="text-align: center;">Courses List</h4>
+                        <!-- Group ListView element -->
+                        <ejs-listview id='sample-list-flat' [dataSource]='data' [showCheckBox]='true'></ejs-listview>
+                    </div>
+                    <!-- <div class="action">
+                        <p class="main-menu-header">ACTION</p>
+                        <button class="e-btn action-btn" id="action-button">+ Button</button>
+                    </div> -->
+                </ejs-sidebar>
+                <!-- end of sidebar element -->
+                
+                <!-- main-content declaration -->
+                <div class="main-content" id="maintext">
+                    <div class="test">
+                        <app-schedule></app-schedule>
+                        <!-- <router-outlet></router-outlet> -->
+                        <div class="clashing" style="width:480px;height:838px;border:1px solid #000;">
+                            <h3 style="text-align: center;">Clashing Courses</h3>
+                            <div id="box1">
+                                course 1
+                            </div>
+                            <div id="box2">
+                                course 2
+                            </div>
+                            <div id="box3">
+                                course 3
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <!-- <div class="sidebar-menu-content"> -->
+                        
+                        <!-- <div> Responsive Sidebar with Menu</div> -->
+                        <!-- <app-schedule></app-schedule>
+                        <h1 style="display:none"> Responsive Sidebar with Menu</h1> -->
+                    <!-- </div> -->
+                    
+                </div>
+                <!-- end of main-content -->
+            </div>
+        </div>
+    </div>
+</div>

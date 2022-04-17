@@ -18,6 +18,12 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@syncfusion/ej2-angular-buttons": "^19.4.53",
+    "@syncfusion/ej2-angular-dropdowns": "^19.4.52",
+    "@syncfusion/ej2-angular-lists": "^19.4.52",
+    "@syncfusion/ej2-angular-navigations": "^19.4.53",
+    "@syncfusion/ej2-angular-schedule": "^19.4.52",
+    "@syncfusion/ej2-material-theme": "^19.4.53",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
