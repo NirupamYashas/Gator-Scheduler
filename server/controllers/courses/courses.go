@@ -6,6 +6,7 @@ import (
 	"server/cors"
 	"server/models"
 	"server/utilities"
+	"strings"
 
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
@@ -22,7 +23,7 @@ func addRoutes() {
 	// utilities.App.R.HandleFunc("/api/projects/{id}", UpdateProject).Methods("PUT", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/{id}", DeleteProject).Methods("DELETE", "OPTIONS")
 	utilities.App.R.HandleFunc("/api/courses/departments/{department}", GetCoursesByDepartment).Methods("GET", "OPTIONS")
-	// utilities.App.R.HandleFunc("/api/projects/search/{search_phrase}", GetProjectsBySearch).Methods("GET", "OPTIONS")
+	utilities.App.R.HandleFunc("/api/courses/search/{search_phrase}", GetCoursesBySearch).Methods("GET", "OPTIONS")
 }
 
 func GetCourses(w http.ResponseWriter, r *http.Request) {
@@ -82,6 +83,36 @@ func GetCoursesByDepartment(w http.ResponseWriter, r *http.Request) {
 
 	var courses []models.Course
 	err := utilities.App.DB.Table("courses").Find(&courses, "department = ?", mux.Vars(r)["department"]).Error
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
+
+	err = json.NewEncoder(w).Encode(courses)
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
+}
+
+func GetCoursesBySearch(w http.ResponseWriter, r *http.Request) {
+	cors.SetupCorsResponse(&w, r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	res := strings.Split(mux.Vars(r)["search_phrase"], " ")
+	tx := utilities.App.DB.Table("courses")
+
+	for _, element := range res {
+		search_term := "%" + element + "%"
+		tx = tx.Where("name LIKE ? OR instructor LIKE ?", search_term, search_term)
+	}
+
+	var courses []models.Course
+	err := tx.Find(&courses).Error
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
