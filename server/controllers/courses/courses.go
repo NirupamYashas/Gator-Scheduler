@@ -124,3 +124,31 @@ func GetCoursesBySearch(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 }
+
+func GetClashingCourses(w http.ResponseWriter, r *http.Request) {
+	cors.SetupCorsResponse(&w, r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	var course models.Course
+	err := json.NewDecoder(r.Body).Decode(&course)
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
+
+	var courses []models.Course
+	err = utilities.App.DB.Table("courses").Find(&courses).Error
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
+
+	// var clashingCourses []models.Course
+
+	// for _, c := range courses {
+	// 	if
+}
