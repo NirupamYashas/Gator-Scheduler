@@ -14,7 +14,7 @@ func Start() {
 }
 
 func addRoutes() {
-	utilities.App.R.HandleFunc("/api/projects", GetCourses).Methods("GET", "OPTIONS")
+	utilities.App.R.HandleFunc("/api/courses", GetCourses).Methods("GET", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects", AddProject).Methods("POST", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/{id}", UpdateProject).Methods("PUT", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/{id}", DeleteProject).Methods("DELETE", "OPTIONS")
