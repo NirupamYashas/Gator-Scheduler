@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	db, err := gorm.Open(sqlite.Open("gator-repo.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("gator-scheduler.db"), &gorm.Config{})
 
 	if err != nil {
 		panic(err.Error())
