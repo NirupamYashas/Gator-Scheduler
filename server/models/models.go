@@ -18,6 +18,7 @@ type Course struct {
 	From       []string `json:"from"`
 	To         []string `json:"to"`
 	Instructor string   `json:"instructor"`
+	Department string   `json:"department"`
 }
 
 type Project struct {

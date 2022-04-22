@@ -8,6 +8,7 @@ import (
 	"server/utilities"
 
 	"github.com/google/uuid"
+	"github.com/gorilla/mux"
 )
 
 func Start() {
@@ -20,7 +21,7 @@ func addRoutes() {
 	utilities.App.R.HandleFunc("/api/courses", AddCourse).Methods("POST", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/{id}", UpdateProject).Methods("PUT", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/{id}", DeleteProject).Methods("DELETE", "OPTIONS")
-	// utilities.App.R.HandleFunc("/api/projects/departments/{department}", GetProjectsByDepartment).Methods("GET", "OPTIONS")
+	utilities.App.R.HandleFunc("/api/courses/departments/{department}", GetCoursesByDepartment).Methods("GET", "OPTIONS")
 	// utilities.App.R.HandleFunc("/api/projects/search/{search_phrase}", GetProjectsBySearch).Methods("GET", "OPTIONS")
 }
 
@@ -68,5 +69,27 @@ func AddCourse(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	} else {
 		w.WriteHeader(http.StatusCreated)
+	}
+}
+
+func GetCoursesByDepartment(w http.ResponseWriter, r *http.Request) {
+	cors.SetupCorsResponse(&w, r)
+	if (*r).Method == "OPTIONS" {
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+
+	var courses []models.Course
+	err := utilities.App.DB.Table("courses").Find(&courses, "department = ?", mux.Vars(r)["department"]).Error
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
+
+	err = json.NewEncoder(w).Encode(courses)
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
 	}
 }
