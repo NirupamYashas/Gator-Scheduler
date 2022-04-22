@@ -11,12 +11,13 @@ type App struct {
 }
 
 type Course struct {
-	ID   string   `gorm:"primary_key" json:"id"`
-	Name string   `json:"name"`
-	Code string   `json:"code"`
-	Days []string `json:"days"`
-	From []string `json:"from"`
-	To   []string `json:"to"`
+	ID         string   `gorm:"primary_key" json:"id"`
+	Name       string   `json:"name"`
+	Code       string   `json:"code"`
+	Days       []string `json:"days"`
+	From       []string `json:"from"`
+	To         []string `json:"to"`
+	Instructor string   `json:"instructor"`
 }
 
 type Project struct {
