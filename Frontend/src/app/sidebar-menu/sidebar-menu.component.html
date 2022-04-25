@@ -31,27 +31,32 @@
                         <!-- <p class="main-menu-header">MAIN</p> -->
                         <!-- Menu element declaration -->
                         <!-- <ejs-menu [items]='menuItems' orientation='Vertical' cssClass='dock-menu'></ejs-menu> -->
-                        <h4 style="text-align: center;">Courses List</h4>
-                        <table class="table">
+                        <!-- <h4 style="text-align: center;">Courses List</h4> -->
+                        <table class="table" id='sample-list-flat'>
                             <thead>
                                 <tr>
-                                    <th scope="col">Courses</th>
+                                    <th scope="col" style="text-align: center;font-size: large;">Courses</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="inner-box">
+                                <tr class="inner-box" *ngFor="let course of courses">
                                     <td>
                                         <div class="event-wrap">
-                                            <h3><a href="#">Toni Duggan</a></h3>
-                                            <div class="meta">
-                                                <div class="organizers">
-                                                    <a href="#">Aslan Lingker</a>
-                                                </div>
-                                                <div class="categories">
-                                                    <a href="#">Inspire</a>
-                                                </div>
-                                                <div class="time">
-                                                    <span>05:35 AM - 08:00 AM 2h 25'</span>
+                                            <div class="ticbox">
+                                                <input type="checkbox" id="vehicle1" name="vehicle1">
+                                            </div>
+                                            <div>
+                                                <h6><a href="#">{{course.name}}</a></h6>
+                                                <div class="meta">
+                                                    <div class="organizers">
+                                                        <span>Instructor: <a href="#">{{course.instructor}}</a> </span>
+                                                    </div>
+                                                    <div class="categories">
+                                                        <span>Course Code: <a href="#">{{course.code}}</a></span>  
+                                                    </div>
+                                                    <div class="categories">
+                                                        <span>Department: <a href="#">{{course.department}}</a></span>  
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

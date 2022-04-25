@@ -2,6 +2,7 @@ import { Component, OnInit,ViewEncapsulation, Inject, ViewChild } from '@angular
 import { SidebarComponent } from '@syncfusion/ej2-angular-navigations';
 import { Menu, MenuItemModel } from '@syncfusion/ej2-navigations';
 import { enableRipple } from '@syncfusion/ej2-base';
+import { CoursesService } from '../courses/courses.service';
 // import { checkboxdata } from './dataSource';
 
 
@@ -12,6 +13,9 @@ import { enableRipple } from '@syncfusion/ej2-base';
   encapsulation: ViewEncapsulation.None
 })
 export class SidebarMenuComponent{
+
+courses: any;
+
   @ViewChild('sidebarMenuInstance')
   public sidebarMenuInstance!: SidebarComponent;
   public width: string = '220px';
@@ -19,8 +23,15 @@ export class SidebarMenuComponent{
   public target: string = '.main-content';
   public dockSize: string = '0px'
   public enableDock: boolean = true;
-  constructor() {
+  constructor(public service: CoursesService) {
       
+  }
+
+  ngOnInit(): void{
+
+    this.service.getCourses().subscribe(data => {
+        this.courses = data;
+    })  
   }
 
   //Define an array of JSON data
