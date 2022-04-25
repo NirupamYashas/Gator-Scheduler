@@ -77,6 +77,7 @@ func CourseRequestToCourse(courseRequest models.CourseRequest) models.Course {
 	course.Name = courseRequest.Name
 	course.Department = courseRequest.Department
 	course.Instructor = courseRequest.Instructor
+	course.Code = courseRequest.Code
 	course.Monday = courseRequest.Days[0]
 	course.Tuesday = courseRequest.Days[1]
 	course.Wednesday = courseRequest.Days[2]
@@ -110,6 +111,7 @@ func CourseToCourseReply(course models.Course) models.CourseReply {
 	courseReply.Name = course.Name
 	courseReply.Department = course.Department
 	courseReply.Instructor = course.Instructor
+	courseReply.Code = course.Code
 
 	if course.Monday {
 		courseReply.Days = append(courseReply.Days, "Monday")
