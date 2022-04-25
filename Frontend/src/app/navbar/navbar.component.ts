@@ -49,7 +49,7 @@ export class NavbarComponent implements OnInit {
   }
 
   displayProjects(){
-    variable.departmentName = "All-Projects";
+    variable.departmentName = "All-Courses";
     this.reloadComponent();
   }
 
