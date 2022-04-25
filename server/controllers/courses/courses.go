@@ -90,7 +90,7 @@ func GetCoursesByDepartment(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 
-	err = json.NewEncoder(w).Encode(courses)
+	err = json.NewEncoder(w).Encode(utilities.CoursesToCourseReplies(courses))
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
@@ -120,7 +120,7 @@ func GetCoursesBySearch(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 
-	err = json.NewEncoder(w).Encode(courses)
+	err = json.NewEncoder(w).Encode(utilities.CoursesToCourseReplies(courses))
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
