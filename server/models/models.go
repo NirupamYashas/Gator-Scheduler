@@ -10,6 +10,25 @@ type App struct {
 	R  *mux.Router
 }
 
+type Course struct {
+	ID         string   `gorm:"primary_key" json:"id"`
+	Name       string   `json:"name"`
+	Code       string   `json:"code"`
+	Days       []string `json:"days"`
+	From       []string `json:"from"`
+	To         []string `json:"to"`
+	Instructor string   `json:"instructor"`
+	Department string   `json:"department"`
+}
+
+type Project struct {
+	ID         string `gorm:"primaryKey" json:"id"`
+	Name       string `json:"name"`
+	Department string `json:"department"`
+	Email      string `json:"email"`
+	Link       string `json:"link"`
+}
+
 type User struct {
 	ID        string `gorm:"primaryKey" json:"id"`
 	Firstname string `json:"firstname"`
@@ -17,6 +36,7 @@ type User struct {
 	Email     string `gorm:"unique" json:"email"`
 	Password  string `json:"password"`
 	Isadmin   bool   `json:"isadmin"`
+	Created   string `json:"created"`
 }
 
 type LoginSignupReply struct {

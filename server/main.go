@@ -1,16 +1,17 @@
 package main
 
 import (
+	"server/app"
+	"server/models"
+	"server/utilities"
+
 	"github.com/gorilla/mux"
-	"github.com/nirupamyashas/Gator-Scheduler/server/app"
-	"github.com/nirupamyashas/Gator-Scheduler/server/models"
-	"github.com/nirupamyashas/Gator-Scheduler/server/utilities"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
 func main() {
-	db, err := gorm.Open(sqlite.Open("gator-repo.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("gator-scheduler.db"), &gorm.Config{})
 
 	if err != nil {
 		panic(err.Error())
