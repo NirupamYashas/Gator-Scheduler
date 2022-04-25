@@ -49,7 +49,7 @@
                 <a class="dropdown-item" routerLink="/projects">Projects List</a>
                 <a class="dropdown-item" routerLink="/create">Add New project</a>
                 <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/users">Manage Users</a>
-                <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/projects">Manage Projects</a>
+                <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/courses">Manage Projects</a>
                 <a class="dropdown-item" (click)="logout()">Log Out</a>
               </div>
           </li>

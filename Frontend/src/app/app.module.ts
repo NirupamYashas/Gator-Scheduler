@@ -21,6 +21,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import {RouterModule} from '@angular/router';
 import { AvailableRoutes } from './app.routing';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
+import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.component';
 
 @NgModule({
   //declaration of ej2-angular-schedule module into NgModule
@@ -31,7 +34,10 @@ import { AvailableRoutes } from './app.routing';
     LoginComponent,
     RegisterComponent,
     HomepageComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    UserProfileComponent,
+    AdminUsersComponent,
+    AdminCoursesComponent
   ],
   imports: [
     NgbModule,
