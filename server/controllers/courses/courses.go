@@ -147,8 +147,11 @@ func GetClashingCourses(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 
-	// var clashingCourses []models.Course
+	var clashingCourses []models.Course = utilities.CheckClashingCourses(course, courses)
 
-	// for _, c := range courses {
-	// 	if
+	err = json.NewEncoder(w).Encode(clashingCourses)
+
+	if err != nil {
+		json.NewEncoder(w).Encode(err.Error())
+	}
 }
