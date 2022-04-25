@@ -15,13 +15,13 @@
         </thead>
         <tbody>
             <tr id="project-row" *ngFor="let course of courses" (click)="editProject(course)">
-                <td>{{course.Name}}</td>
-                <td>{{course.Code}}</td>
-                <td>{{course.Department}}</td>
-                <td>{{course.Instructor}}</td>
-                <td>{{course.Days}}</td>
-                <td>{{course.From}}</td>
-                <td>{{course.To}}</td>
+                <td>{{course.name}}</td>
+                <td>{{course.code}}</td>
+                <td>{{course.department}}</td>
+                <td>{{course.instructor}}</td>
+                <td>{{course.days}}</td>
+                <td>{{course.start_times}}</td>
+                <td>{{course.end_times}}</td>
             </tr>
         </tbody>
     </table>
