@@ -46,10 +46,11 @@
             </a>
               <div ngbDropdownMenu id="user-items" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" routerLink="/user-profile">Profile</a>
-                <a class="dropdown-item" routerLink="/projects">Projects List</a>
-                <a class="dropdown-item" routerLink="/create">Add New project</a>
+                <a class="dropdown-item" routerLink="/courses">Courses List</a>
+                <a class="dropdown-item" routerLink="/create">Add New Course</a>
+                <a class="dropdown-item" routerLink="/timetable">Create New Timetable</a>
                 <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/users">Manage Users</a>
-                <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/courses">Manage Projects</a>
+                <a *ngIf="authenticationService.CurrentUser.data.isadmin" class="dropdown-item" routerLink="/admin/courses">Manage Courses</a>
                 <a class="dropdown-item" (click)="logout()">Log Out</a>
               </div>
           </li>

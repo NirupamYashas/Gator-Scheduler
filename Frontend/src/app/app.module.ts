@@ -24,11 +24,16 @@ import { AvailableRoutes } from './app.routing';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { AdminUsersComponent } from './admin/admin-users/admin-users.component';
 import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.component';
+import { CoursesComponent } from './courses/courses.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   //declaration of ej2-angular-schedule module into NgModule
   declarations: [
     AppComponent,
+    CoursesComponent,
+    CreateComponent,
     SidebarMenuComponent,
     ScheduleComponent,
     LoginComponent,
@@ -37,7 +42,8 @@ import { AdminCoursesComponent } from './admin/admin-courses/admin-courses.compo
     ToolbarComponent,
     UserProfileComponent,
     AdminUsersComponent,
-    AdminCoursesComponent
+    AdminCoursesComponent,
+    NavbarComponent
   ],
   imports: [
     NgbModule,

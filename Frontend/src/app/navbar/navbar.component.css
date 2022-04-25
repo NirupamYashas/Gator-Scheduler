@@ -1,0 +1,12 @@
+.nav{
+   margin-top: 60px;
+   width: 1730px;
+}
+
+.nav-item{
+   margin-left: 20px;
+}
+
+.dropdown-toggle{
+   cursor: pointer;
+}

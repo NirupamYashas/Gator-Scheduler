@@ -263,6 +263,10 @@ body {
     display: none
 }
 
+.control-section{
+    margin-top: 60px;
+}
+
 .ej2-new .control-section{
 	padding-left: 0px;
 }
