@@ -1,7 +1,9 @@
 package utilities
 
 import (
+	"fmt"
 	"server/models"
+	"time"
 
 	"github.com/google/uuid"
 )
@@ -60,7 +62,7 @@ func CheckClashingCourses(course models.CourseReply, courses []models.CourseRepl
 				courseDayIndex := IndexOf(day, course.Days)
 				cDayIndex := IndexOf(day, c.Days)
 
-				if course.StartTimes[courseDayIndex] <= c.EndTimes[cDayIndex] && course.EndTimes[courseDayIndex] >= c.StartTimes[cDayIndex] {
+				if ChangeTimeFormat(course.StartTimes[courseDayIndex]) <= ChangeTimeFormat(c.EndTimes[cDayIndex]) && ChangeTimeFormat(course.EndTimes[courseDayIndex]) >= ChangeTimeFormat(c.StartTimes[cDayIndex]) {
 					clashingCourses = append(clashingCourses, c)
 					break
 				}
@@ -144,4 +146,16 @@ func CourseToCourseReply(course models.Course) models.CourseReply {
 	}
 
 	return courseReply
+}
+
+func ChangeTimeFormat(timestring string) string {
+	layout1 := "03:04 PM"
+	layout2 := "15:04"
+	t, err := time.Parse(layout1, timestring)
+
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	return t.Format(layout2)
 }

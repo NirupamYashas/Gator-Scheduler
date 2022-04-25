@@ -9,6 +9,7 @@ import (
 
 func Start() {
 	addRoutes()
+	// Sample()
 }
 
 func addRoutes() {
@@ -25,3 +26,17 @@ func Test(w http.ResponseWriter, r *http.Request) {
 
 	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, World!"})
 }
+
+// func Sample() {
+// 	var courses []models.Course
+// 	utilities.App.DB.Table("courses").Find(&courses)
+// 	fmt.Println(courses[0].TuesdayStartTime)
+// 	fmt.Println(courses[0].TuesdayEndTime)
+
+// 	t, err := time.Parse("0"+courses[0].TuesdayStartTime, "12:00")
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	fmt.Println(t.Sub(t).Seconds())
+// }
