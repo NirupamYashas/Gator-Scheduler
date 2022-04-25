@@ -54,70 +54,80 @@
       <div *ngIf="addCourseForm.controls['course_days'].value[0]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Monday Starting Time</label>
-          <input type="email" formControlName="monday_starting_time" class="form-control" id="inputStaringTime" placeholder="Starting Time">
+          <input type="text" [ngxTimepicker]="monday_st" formControlName="monday_starting_time" class="form-control" placeholder="Monday Starting Time">
+          <ngx-material-timepicker #monday_st></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[0]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Monday Ending Time</label>
-          <input type="email" formControlName="monday_ending_time" class="form-control" id="inputEndingTime" placeholder="Ending Time">
+          <input type="text" [ngxTimepicker]="monday_et" formControlName="monday_ending_time" class="form-control" placeholder="Monday Ending Time">
+          <ngx-material-timepicker #monday_et></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[1]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Tuesday Starting Time</label>
-          <input type="email" formControlName="tuesday_starting_time" class="form-control" id="inputStaringTime" placeholder="Starting Time">
+          <input type="email" [ngxTimepicker]="tuesday_st" formControlName="tuesday_starting_time" class="form-control" placeholder="Tuesday Starting Time">
+          <ngx-material-timepicker #tuesday_st></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[1]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Tuesday Ending Time</label>
-          <input type="email" formControlName="tuesday_ending_time" class="form-control" id="inputEndingTime" placeholder="Ending Time">
+          <input type="email" [ngxTimepicker]="tuesday_et" formControlName="tuesday_ending_time" class="form-control" placeholder="Tuesday Ending Time">
+          <ngx-material-timepicker #tuesday_et></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[2]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Wednesday Starting Time</label>
-          <input type="email" formControlName="wednesday_starting_time" class="form-control" id="inputStaringTime" placeholder="Starting Time">
+          <input type="email" [ngxTimepicker]="wednesday_st" formControlName="wednesday_starting_time" class="form-control" placeholder="Wednesday Starting Time">
+          <ngx-material-timepicker #wednesday_st></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[2]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Wednesday Ending Time</label>
-          <input type="email" formControlName="wednesday_ending_time" class="form-control" id="inputEndingTime" placeholder="Ending Time">
+          <input type="email" [ngxTimepicker]="wednesday_et" formControlName="wednesday_ending_time" class="form-control" placeholder="Wednesday Ending Time">
+          <ngx-material-timepicker #wednesday_et></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[3]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Thursday Starting Time</label>
-          <input type="email" formControlName="thursday_starting_time" class="form-control" id="inputStaringTime" placeholder="Starting Time">
+          <input type="email" [ngxTimepicker]="thursday_st" formControlName="thursday_starting_time" class="form-control" placeholder="Thursday Starting Time">
+          <ngx-material-timepicker #thursday_st></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[3]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Thursday Ending Time</label>
-          <input type="email" formControlName="thursday_ending_time" class="form-control" id="inputEndingTime" placeholder="Ending Time">
+          <input type="email" [ngxTimepicker]="thursday_et" formControlName="thursday_ending_time" class="form-control" placeholder="Thursday Ending Time">
+          <ngx-material-timepicker #thursday_et></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[4]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Friday Starting Time</label>
-          <input type="email" formControlName="friday_starting_time" class="form-control" id="inputStaringTime" placeholder="Starting Time">
+          <input type="email" [ngxTimepicker]="friday_st" formControlName="friday_starting_time" class="form-control" placeholder="Friday Starting Time">
+          <ngx-material-timepicker #friday_st></ngx-material-timepicker>
         </div>
       </div>
 
       <div *ngIf="addCourseForm.controls['course_days'].value[4]" class="form-row" >
         <div class="form-group col-md-6">
           <label for="inputName">Friday Ending Time</label>
-          <input type="email" formControlName="friday_ending_time" class="form-control" id="inputEndingTime" placeholder="Ending Time">
+          <input type="email" [ngxTimepicker]="friday_et" formControlName="friday_ending_time" class="form-control" id="inputEndingTime" placeholder="Friday Ending Time">
+          <ngx-material-timepicker #friday_et></ngx-material-timepicker>
         </div>
       </div>
 

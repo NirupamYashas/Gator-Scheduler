@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 
 // import the ScheduleModule for the Schedule component
@@ -48,6 +50,8 @@ import { CreateComponent } from './create/create.component';
   imports: [
     NgbModule,
     HttpClientModule,
+    NgxMaterialTimepickerModule,
+    BrowserAnimationsModule,
     SidebarModule, 
     MenuAllModule, 
     RadioButtonModule,
