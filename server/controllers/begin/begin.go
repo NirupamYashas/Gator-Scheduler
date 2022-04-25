@@ -2,17 +2,14 @@ package begin
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 	"server/cors"
-	"server/models"
 	"server/utilities"
-	"time"
 )
 
 func Start() {
 	addRoutes()
-	Sample()
+	// Sample()
 }
 
 func addRoutes() {
@@ -30,16 +27,16 @@ func Test(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{"message": "Hello, World!"})
 }
 
-func Sample() {
-	var courses []models.Course
-	utilities.App.DB.Table("courses").Find(&courses)
-	fmt.Println(courses[0].TuesdayStartTime)
-	fmt.Println(courses[0].TuesdayEndTime)
+// func Sample() {
+// 	var courses []models.Course
+// 	utilities.App.DB.Table("courses").Find(&courses)
+// 	fmt.Println(courses[0].TuesdayStartTime)
+// 	fmt.Println(courses[0].TuesdayEndTime)
 
-	t, err := time.Parse("0"+courses[0].TuesdayStartTime, "12:00")
-	if err != nil {
-		panic(err)
-	}
+// 	t, err := time.Parse("0"+courses[0].TuesdayStartTime, "12:00")
+// 	if err != nil {
+// 		panic(err)
+// 	}
 
-	fmt.Println(t.Sub(t).Seconds())
-}
+// 	fmt.Println(t.Sub(t).Seconds())
+// }
