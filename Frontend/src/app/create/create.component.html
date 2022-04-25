@@ -131,7 +131,7 @@
         </div>
       </div>
 
-      <button type="submit" id="create-course" class="btn btn-primary" >Create Course</button>
+      <button type="submit" id="create-course" (click)="addCourseSubmit(addCourseForm.value)" routerLink="/courses" class="btn btn-primary">Create Course</button>
   </form>
 </div>
 
