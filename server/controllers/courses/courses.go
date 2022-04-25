@@ -8,7 +8,6 @@ import (
 	"server/utilities"
 	"strings"
 
-	"github.com/google/uuid"
 	"github.com/gorilla/mux"
 )
 
@@ -41,7 +40,9 @@ func GetCourses(w http.ResponseWriter, r *http.Request) {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 
-	err = json.NewEncoder(w).Encode(courses)
+	var courseReplies []models.CourseReply = utilities.CoursesToCourseReplies(courses)
+
+	err = json.NewEncoder(w).Encode(courseReplies)
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
@@ -56,14 +57,15 @@ func AddCourse(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 
-	var course models.Course
-	err := json.NewDecoder(r.Body).Decode(&course)
+	var courseRequest models.CourseRequest
+	err := json.NewDecoder(r.Body).Decode(&courseRequest)
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
 	}
 
-	course.ID = uuid.New().String()
+	var course models.Course = utilities.CourseRequestToCourse(courseRequest)
+
 	err = utilities.App.DB.Table("courses").Save(&course).Error
 
 	if err != nil {

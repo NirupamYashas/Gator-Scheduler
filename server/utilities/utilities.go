@@ -1,6 +1,10 @@
 package utilities
 
-import "server/models"
+import (
+	"server/models"
+
+	"github.com/google/uuid"
+)
 
 const SecretKey = "secret"
 
@@ -66,3 +70,76 @@ func IndexOf(element string, data []string) int {
 
 // 	return clashingCourses
 // }
+
+func CourseRequestToCourse(courseRequest models.CourseRequest) models.Course {
+	var course models.Course
+	course.ID = uuid.New().String()
+	course.Name = courseRequest.Name
+	course.Department = courseRequest.Department
+	course.Instructor = courseRequest.Instructor
+	course.Monday = courseRequest.Days[0]
+	course.Tuesday = courseRequest.Days[1]
+	course.Wednesday = courseRequest.Days[2]
+	course.Thursday = courseRequest.Days[3]
+	course.Friday = courseRequest.Days[4]
+	course.MondayStartTime = courseRequest.MondayStartTime
+	course.MondayEndTime = courseRequest.MondayEndTime
+	course.TuesdayStartTime = courseRequest.TuesdayStartTime
+	course.TuesdayEndTime = courseRequest.TuesdayEndTime
+	course.WednesdayStartTime = courseRequest.WednesdayStartTime
+	course.WednesdayEndTime = courseRequest.WednesdayEndTime
+	course.ThursdayStartTime = courseRequest.ThursdayStartTime
+	course.ThursdayEndTime = courseRequest.ThursdayEndTime
+	course.FridayStartTime = courseRequest.FridayStartTime
+	course.FridayEndTime = courseRequest.FridayEndTime
+
+	return course
+}
+
+func CoursesToCourseReplies(courses []models.Course) []models.CourseReply {
+	var courseReplies []models.CourseReply
+	for _, course := range courses {
+		courseReplies = append(courseReplies, CourseToCourseReply(course))
+	}
+	return courseReplies
+}
+
+func CourseToCourseReply(course models.Course) models.CourseReply {
+	var courseReply models.CourseReply
+	courseReply.ID = course.ID
+	courseReply.Name = course.Name
+	courseReply.Department = course.Department
+	courseReply.Instructor = course.Instructor
+
+	if course.Monday {
+		courseReply.Days = append(courseReply.Days, "Monday")
+		courseReply.StartTimes = append(courseReply.StartTimes, course.MondayStartTime)
+		courseReply.EndTimes = append(courseReply.EndTimes, course.MondayEndTime)
+	}
+
+	if course.Tuesday {
+		courseReply.Days = append(courseReply.Days, "Tuesday")
+		courseReply.StartTimes = append(courseReply.StartTimes, course.TuesdayStartTime)
+		courseReply.EndTimes = append(courseReply.EndTimes, course.TuesdayEndTime)
+	}
+
+	if course.Wednesday {
+		courseReply.Days = append(courseReply.Days, "Wednesday")
+		courseReply.StartTimes = append(courseReply.StartTimes, course.WednesdayStartTime)
+		courseReply.EndTimes = append(courseReply.EndTimes, course.WednesdayEndTime)
+	}
+
+	if course.Thursday {
+		courseReply.Days = append(courseReply.Days, "Thursday")
+		courseReply.StartTimes = append(courseReply.StartTimes, course.ThursdayStartTime)
+		courseReply.EndTimes = append(courseReply.EndTimes, course.ThursdayEndTime)
+	}
+
+	if course.Friday {
+		courseReply.Days = append(courseReply.Days, "Friday")
+		courseReply.StartTimes = append(courseReply.StartTimes, course.FridayStartTime)
+		courseReply.EndTimes = append(courseReply.EndTimes, course.FridayEndTime)
+	}
+
+	return courseReply
+}
