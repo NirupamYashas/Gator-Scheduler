@@ -43,26 +43,26 @@ func IndexOf(element string, data []string) int {
 	return -1 //not found.
 }
 
-func CheckClashingCourses(course models.Course, courses []models.Course) []models.Course {
-	var clashingCourses []models.Course
+// func CheckClashingCourses(course models.Course, courses []models.Course) []models.Course {
+// 	var clashingCourses []models.Course
 
-	for _, c := range courses {
-		var clasingDays = Intersection(course.Days, c.Days)
+// 	for _, c := range courses {
+// 		var clasingDays = Intersection(course.Days, c.Days)
 
-		if len(clasingDays) > 0 {
+// 		if len(clasingDays) > 0 {
 
-			for _, day := range clasingDays {
+// 			for _, day := range clasingDays {
 
-				courseDayIndex := IndexOf(day, course.Days)
-				cDayIndex := IndexOf(day, c.Days)
+// 				courseDayIndex := IndexOf(day, course.Days)
+// 				cDayIndex := IndexOf(day, c.Days)
 
-				if course.From[courseDayIndex] <= c.To[cDayIndex] && course.To[courseDayIndex] >= c.From[cDayIndex] {
-					clashingCourses = append(clashingCourses, c)
-					break
-				}
-			}
-		}
-	}
+// 				if course.From[courseDayIndex] <= c.To[cDayIndex] && course.To[courseDayIndex] >= c.From[cDayIndex] {
+// 					clashingCourses = append(clashingCourses, c)
+// 					break
+// 				}
+// 			}
+// 		}
+// 	}
 
-	return clashingCourses
-}
+// 	return clashingCourses
+// }

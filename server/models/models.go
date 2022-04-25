@@ -11,14 +11,26 @@ type App struct {
 }
 
 type Course struct {
-	ID         string   `gorm:"primary_key" json:"id"`
-	Name       string   `json:"name"`
-	Code       string   `json:"code"`
-	Days       []string `json:"days"`
-	From       []string `json:"from"`
-	To         []string `json:"to"`
-	Instructor string   `json:"instructor"`
-	Department string   `json:"department"`
+	ID                 string `gorm:"primary_key" json:"id"`
+	Name               string `json:"name"`
+	Code               string `json:"code"`
+	Monday             bool   `json:"monday"`
+	Tuesday            bool   `json:"tuesday"`
+	Wednesday          bool   `json:"wednesday"`
+	Thursday           bool   `json:"thursday"`
+	Friday             bool   `json:"friday"`
+	MondayStartTime    string `json:"monday_start_time"`
+	MondayEndTime      string `json:"monday_end_time"`
+	TuesdayStartTime   string `json:"tuesday_start_time"`
+	TuesdayEndTime     string `json:"tuesday_end_time"`
+	WednesdayStartTime string `json:"wednesday_start_time"`
+	WednesdayEndTime   string `json:"wednesday_end_time"`
+	ThursdayStartTime  string `json:"thursday_start_time"`
+	ThursdayEndTime    string `json:"thursday_end_time"`
+	FridayStartTime    string `json:"friday_start_time"`
+	FridayEndTime      string `json:"friday_end_time"`
+	Instructor         string `json:"instructor"`
+	Department         string `json:"department"`
 }
 
 type Project struct {
