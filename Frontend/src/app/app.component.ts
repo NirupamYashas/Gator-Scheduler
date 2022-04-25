@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { EventSettingsModel, DayService, WeekService, WorkWeekService, MonthService, AgendaService ,View } from '@syncfusion/ej2-angular-schedule';
+import { AuthenticationService } from './services/authentication.service';
+import { Router } from '@angular/router';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',

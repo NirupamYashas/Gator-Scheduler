@@ -15,11 +15,11 @@ export class ScheduleComponent{
   public data: object [] = [{
     id: 2,
     eventName: 'Meeting',
-    startTime: new Date(2018, 1, 15, 10, 0),
-    endTime: new Date(2018, 1, 15, 12, 30),
+    startTime: new Date(2022, 3, 22, 10, 0),
+    endTime: new Date(2022, 3, 22, 12, 30),
     isAllDay: false
   }];
-  public selectedDate: Date = new Date(2018, 1, 15);
+  public selectedDate: Date = new Date(2022, 3, 22);
   public eventSettings: EventSettingsModel = {dataSource: this.data,
     fields: {
       id: 'id',
