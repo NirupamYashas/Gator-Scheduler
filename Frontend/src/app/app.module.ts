@@ -10,6 +10,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { CoursesService } from './courses/courses.service';
 
 
 // import the ScheduleModule for the Schedule component
@@ -69,7 +70,9 @@ import { CreateComponent } from './create/create.component';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [],
+  providers: [
+    CoursesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

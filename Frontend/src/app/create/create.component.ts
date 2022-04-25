@@ -72,7 +72,7 @@ export class CreateComponent implements OnInit {
     //  var ufMail = this.addProjectForm.getRawValue().uf_mail;
     //  var githubLink = this.addProjectForm.getRawValue().github_link;
     //  const newFormData = { name: projectName, department: departmentName, email: ufMail , link: githubLink };
-    // this.coursesService.createCourse(formData).subscribe(data => {})
+    this.coursesService.createCourse(formData).subscribe(data => {})
   }
 
   ngOnDestroy() {
