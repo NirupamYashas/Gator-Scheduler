@@ -33,3 +33,36 @@ func removeDups(elements []string) (nodups []string) {
 	}
 	return
 }
+
+func IndexOf(element string, data []string) int {
+	for k, v := range data {
+		if element == v {
+			return k
+		}
+	}
+	return -1 //not found.
+}
+
+func CheckClashingCourses(course models.Course, courses []models.Course) []models.Course {
+	var clashingCourses []models.Course
+
+	for _, c := range courses {
+		var clasingDays = Intersection(course.Days, c.Days)
+
+		if len(clasingDays) > 0 {
+
+			for _, day := range clasingDays {
+
+				courseDayIndex := IndexOf(day, course.Days)
+				cDayIndex := IndexOf(day, c.Days)
+
+				if course.From[courseDayIndex] <= c.To[cDayIndex] && course.To[courseDayIndex] >= c.From[cDayIndex] {
+					clashingCourses = append(clashingCourses, c)
+					break
+				}
+			}
+		}
+	}
+
+	return clashingCourses
+}
