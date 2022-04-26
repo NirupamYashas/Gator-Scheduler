@@ -23,6 +23,7 @@ func addRoutes() {
 	// utilities.App.R.HandleFunc("/api/projects/{id}", DeleteProject).Methods("DELETE", "OPTIONS")
 	utilities.App.R.HandleFunc("/api/courses/departments/{department}", GetCoursesByDepartment).Methods("GET", "OPTIONS")
 	utilities.App.R.HandleFunc("/api/courses/search/{search_phrase}", GetCoursesBySearch).Methods("GET", "OPTIONS")
+	utilities.App.R.HandleFunc("/api/courses/clash/{id}", GetClashingCourses).Methods("GET", "OPTIONS")
 }
 
 func GetCourses(w http.ResponseWriter, r *http.Request) {
@@ -136,7 +137,7 @@ func GetClashingCourses(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 
 	var course models.Course
-	err := json.NewDecoder(r.Body).Decode(&course)
+	err := utilities.App.DB.Table("courses").Where("id = ?", mux.Vars(r)["id"]).First(&course).Error
 
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())

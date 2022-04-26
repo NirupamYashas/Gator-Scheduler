@@ -3,6 +3,7 @@ package utilities
 import (
 	"fmt"
 	"server/models"
+	"strings"
 	"time"
 
 	"github.com/google/uuid"
@@ -151,11 +152,23 @@ func CourseToCourseReply(course models.Course) models.CourseReply {
 func ChangeTimeFormat(timestring string) string {
 	layout1 := "03:04 PM"
 	layout2 := "15:04"
-	t, err := time.Parse(layout1, timestring)
 
-	if err != nil {
-		fmt.Println(err)
+	if len(strings.Split(timestring, ":")[0]) == 1 {
+		t, err := time.Parse(layout1, "0"+timestring)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		return t.Format(layout2)
+	} else {
+		t, err := time.Parse(layout1, timestring)
+
+		if err != nil {
+			fmt.Println(err)
+		}
+
+		return t.Format(layout2)
 	}
 
-	return t.Format(layout2)
 }

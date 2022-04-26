@@ -89,7 +89,7 @@ func UpdateProject(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		json.NewEncoder(w).Encode(err.Error())
 	}
-	fmt.Println("Hi")
+
 	fmt.Println(mux.Vars(r)["id"])
 	err = utilities.App.DB.Table("projects").Where("id = ?", mux.Vars(r)["id"]).First(&project).Error
 
